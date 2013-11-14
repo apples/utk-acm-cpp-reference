@@ -1,6 +1,6 @@
 # C++ Notes and Tutorials
 
-All documents in the repository are meant for use in rapid and effective
+This repository is a quick guide and reference for rapid and efficient
 algorithm programming in C++. Standard containers and algorithms are
 discussed heavily.
 

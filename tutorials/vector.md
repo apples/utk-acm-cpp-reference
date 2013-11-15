@@ -6,7 +6,7 @@ A `vector` is a dynamically allocated array. It has the following properties:
 - Contiguous
 - Unordered
 
-# Basic Usage
+# Example Usage
 
 ```C++
 #include <vector>
@@ -53,4 +53,50 @@ int main()
     // numbers == {0,2,4,6,8}
 }
 ```
+
+# Notable Methods
+
+All members that increase the `.size()` of the vector may reallocate
+and move the vector.
+
+`.push_back( value )`
+
+- Adds new element to the back of the vector.
+- Potentially reallocates and swaps the vector.
+  - Can be controlled with `.reserve()`.
+
+`.pop_back()`
+
+- Removes the back element.
+- Never reallocates.
+
+`.insert( iterator, value )`
+
+- Moves every element in the range `[ iterator, .end() )`.
+
+`.erase( iterator )`
+
+- Moves every element in the range `( iterator, .end() )`.
+- Never reallocates.
+
+`.resize( size, [value] )`
+
+- Creates new elements until `.size() == size`.
+- Will fill with default or specified value.
+- If `.size() > size`, elements are erased instead.
+- If `.size() < size`, existing elements are not modified.
+
+`.reserve( size )`
+
+- Allocates room for `size` elements.
+- Does not create any new elements.
+- Potentially reallocates.
+
+`.size()`
+
+- Returns the number of valid elements.
+
+`.capacity()`
+
+- Returns the max `.size()` of the vector before reallocation must occur.
 

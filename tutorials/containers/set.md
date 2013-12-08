@@ -40,3 +40,11 @@ int main()
 	// numbers == {0,1,2,3,4,8}
 }
 ```
+
+# Notable Methods
+
+`.insert( value )`
+
+- Returns a `std::pair< iterator, bool >`.
+  - The first part is an iterator to the inserted or existing element.
+  - The second part is a flag indicating if there was no collision.

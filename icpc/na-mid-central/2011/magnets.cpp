@@ -27,7 +27,7 @@ int main()
     
     string line;
     
-    while (getline(in, line), line != "END")
+    while (getline(in, line) && line != "END")
     {
         if (is_valid(line)) cout <<line <<endl;
     }

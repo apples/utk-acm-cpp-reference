@@ -47,7 +47,7 @@ int main()
     // There will be no more than 20 words with a maximum length of 30.
     vector<string> words(20, string(30, '?'));
     
-    while (in >>numWords, numWords != 0)
+    while (in >>numWords && numWords != 0)
     {
         ++year;
         

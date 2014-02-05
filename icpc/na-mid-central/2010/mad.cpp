@@ -15,7 +15,7 @@ int main()
     
     sequence.reserve(26);
     
-    while (in >>k, k != 0)
+    while (in >>k && k != 0)
     {
         sequence.resize(k);
         

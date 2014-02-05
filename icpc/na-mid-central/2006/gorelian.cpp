@@ -97,7 +97,7 @@ int main()
     
     int N;
     
-    while (in >>N, N!=0)
+    while (in >>N && N!=0)
     {
         planets.clear();
         

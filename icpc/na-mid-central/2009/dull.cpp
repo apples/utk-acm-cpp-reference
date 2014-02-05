@@ -24,7 +24,7 @@ struct Program
 
 int main()
 {
-	ifstream input ("dull.in");
+	ifstream in ("dull.in");
 	
 	int N; // Number of DuLLs
 	int P; // Number of Programs
@@ -42,7 +42,7 @@ int main()
 	// The `dulls` and `progs` vectors are scoped outside of the loop
 	// to minimize dynamic memory allocation.
 	
-	while (input >>N >>P >>S, N!=0)
+	while (in >>N >>P >>S && N!=0)
 	{
 		dulls.clear();
 		progs.clear();
@@ -56,13 +56,13 @@ int main()
 		// Read in data for the DuLLs.
 		for (int i=0; i<N; ++i)
 		{
-			input >>dulls[i].size;
+			in >>dulls[i].size;
 		}
 		
 		// Read in data for the programs.
 		for (int i=0; i<P; ++i)
 		{
-			input >>progs[i].size >>progs[i].dulls;
+			in >>progs[i].size >>progs[i].dulls;
 		}
 		
 		// Run the simulation.
@@ -71,7 +71,7 @@ int main()
 			int progID; // Current program id.
 			int direction = 1; // == 1 if starting program, == -1 if ending.
 			
-			input >>progID;
+			in >>progID;
 			
 			if (progID < 0)
 			{

@@ -35,7 +35,7 @@ int main()
     
     string word;
     
-    while (in >>word, word != "#") try
+    while (in >>word && word != "#") try
     {
         // Mirror each character.
         transform(word.begin(), word.end(), word.begin(), mirror);

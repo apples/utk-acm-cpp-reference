@@ -45,10 +45,12 @@ struct ItemConv
 struct Item
 {
     map<string, ItemConv> conv;
+    string name;
     bool visited;
     
     Item()
         : conv()
+        , name()
         , visited(false)
     {}
     
@@ -60,16 +62,24 @@ struct Item
         ItemConv tmp;
         
         if (visited) return rv;
-        visited = true;
+        
+        // Search direct conversions
         
         for (MIter i=conv.begin(), ie=conv.end(); i!=ie; ++i)
         {
             if (i->first == to)
             {
                 rv = i->second;
-                break;
+                return rv;
             }
-            
+        }
+        
+        // No direct conversion, try indirect conversions5.
+        
+        visited = true;
+        
+        for (MIter i=conv.begin(), ie=conv.end(); i!=ie; ++i)
+        {
             tmp = i->second.to->convert(to);
             
             if (tmp.to)
@@ -79,7 +89,14 @@ struct Item
                 rv.rate.num *= tmp.rate.num;
                 rv.rate.den *= tmp.rate.den;
                 
+                // Link for efficiency
+                
                 conv[to] = rv;
+                
+                Item* target = tmp.to;
+                tmp.to = this;
+                swap(tmp.rate.num, tmp.rate.den);
+                target->conv[name] = tmp;
                 
                 break;
             }
@@ -111,6 +128,9 @@ int main()
             
             Item& aitem = items[astr];
             Item& bitem = items[bstr];
+            
+            if (aitem.name.empty()) aitem.name = astr;
+            if (bitem.name.empty()) bitem.name = bstr;
             
             ItemConv& aconv = aitem.conv[bstr];
             ItemConv& bconv = bitem.conv[astr];

@@ -7,28 +7,39 @@ using namespace std;
 // Determines if a string contains no duplicate letters.
 bool is_valid(const string& str)
 {
-    // A set might not be the fastest way of solving this, but it's the easiest.
-    set<char> letters;
-    
-    for (unsigned i=0, ie=str.size(); i!=ie; ++i)
+    bool seen['Z'-'A'+1] = {};
+
+    for (char c : str)
     {
-        if (str[i]!=' ')
+        if (c != ' ')
         {
-            if (!letters.insert(str[i]).second) return false;
+            int index = c - 'A';
+
+            if (seen[index])
+            {
+                return false;
+            }
+            else
+            {
+                seen[index] = true;
+            }
         }
     }
-    
+
     return true;
 }
 
 int main()
 {
     ifstream in ("magnets.in");
-    
+
     string line;
-    
+
     while (getline(in, line) && line != "END")
     {
-        if (is_valid(line)) cout <<line <<endl;
+        if (is_valid(line))
+        {
+            cout << line << endl;
+        }
     }
 }

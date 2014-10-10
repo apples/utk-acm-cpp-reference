@@ -1,3 +1,9 @@
+// Pascal's Travels
+// This problem is a good example of dynamic programming.
+// The brute-force solution is O(n^2) time and O(1) space.
+// This solution is O(n) time and O(n) space.
+// It's a great example of trading space for time.
+
 #include <algorithm>
 #include <iostream>
 #include <fstream>

@@ -25,4 +25,21 @@ int main() {
         }
         cout << "$" << endl;
     }
+
+    // This is another solution that uses O(1) space.
+#if 0
+    int last;
+    int current;
+    while ((in >> N) && N != 0) {
+        last = 0;
+        for (int i=0; i<N; ++i) {
+            in >> current;
+            if (current != last) {
+                cout << current << " ";
+            }
+            last = current;
+        }
+        cout << "$" << endl;
+    }
+#endif
 }

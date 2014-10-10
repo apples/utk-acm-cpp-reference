@@ -1,3 +1,6 @@
+// Duplicate Removal
+// http://mcicpc.cs.atu.edu/archives/2009/mcpc2009/dup/dup.html
+
 #include <algorithm>
 #include <iostream>
 #include <fstream>

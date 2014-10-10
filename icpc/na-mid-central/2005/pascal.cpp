@@ -1,4 +1,5 @@
 // Pascal's Travels
+// http://mcicpc.cs.atu.edu/archives/2005/mcpc2005/pascal/pascal.html
 // This problem is a good example of dynamic programming.
 // The brute-force solution is O(n^2) time and O(1) space.
 // This solution is O(n) time and O(n) space.
